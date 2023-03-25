@@ -5,4 +5,4 @@ website for orgonize student
 - vs code
 - github
 
-[live code]()
+[live code](https://abdulrahman-alhaleme.github.io/school-system/)
