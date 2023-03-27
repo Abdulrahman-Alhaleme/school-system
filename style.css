@@ -168,14 +168,23 @@ footer {
     }
 
     .main-form .btn {
-        width: 80%;
+        font-size: 1rem;
     }
 
-    .info,
-    td {
+    .info {
         display: flex;
-        font-size: 75%;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+
+
+    }
+
+    .info th,
+    td {
+        font-size: 0.5rem;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+
     }
 
 
