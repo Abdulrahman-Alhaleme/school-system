@@ -43,6 +43,13 @@
                 <label for="grade">Grade:</label>
                 <input type="number" id="grade" name="grade" min="1" max="12" required>
                 <br><br>
+                <select id="Major" name="Major">
+                    <option value="Administration">Administration</option>
+                    <option value="IT">IT</option>
+                    <option value="Science">Science</option>
+                    <option value="Art">Art</option>
+                </select>
+                <br><br>
 
                 <button class="btn" type="submit">Add Student</button>
 
@@ -50,7 +57,21 @@
             </form>
         </div>
 
-        <div class="table-container">
+
+
+        <div id="students-list">
+
+
+
+
+
+
+
+
+
+        </div>
+
+        <!-- <div class="table-container">
             <h2>Students List</h2>
             <br>
             <table id="studentInfo">
@@ -63,10 +84,10 @@
                         <th>Grade:</th>
                     </tr>
                 </thead>
-                <tbody id="students-list">
-                </tbody>
+                <div id="students-list">
+                </div>
             </table>
-        </div>
+        </div> -->
     </main>
 
     <footer>

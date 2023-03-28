@@ -1,40 +1,79 @@
 
+let arrData = [];
+if (localStorage.arrData != null) {
+    arrData = JSON.parse(localStorage.arrData);
+    render();
+}
+
+
+
+
 const form = document.getElementById("inForm");
 form.addEventListener("submit", function (e) {
-    e.preventDefault();
+
     let FullName = e.target.FullName.value;
     let Birth = e.target.Birth.value;
     let gender = e.target.gender.value;
     let phone = e.target.phone.value;
     let grade = e.target.grade.value;
+    let Major = e.target.Major.value
 
-    console.log(FullName, Birth, gender, phone, grade)
-    render(FullName, Birth, gender, phone, grade)
-})
-function render(FullName, Birth, gender, phone, grade) {
+    let student = new Person(FullName, Birth, gender, phone, grade, Major);
 
-    let tbody0 = document.getElementById("students-list")
-
-    let tr0 = document.createElement("tr");
-    let td1 = document.createElement("td");
-    let td2 = document.createElement("td");
-    let td3 = document.createElement("td");
-    let td4 = document.createElement("td");
-    let td5 = document.createElement("td");
-    tbody0.appendChild(tr0)
-
-
-    td1.textContent = FullName;
-    td2.textContent = Birth;
-    td3.textContent = gender;
-    td4.textContent = phone;
-    td5.textContent = grade;
+    arrData.push(student);
+    localStorage.setItem('arrData', JSON.stringify(arrData));
+    render();
+});
+function Person(FullName, Birth, gender, phone, grade, Major) {
+    this.FullName = FullName;
+    this.Birth = Birth;
+    this.gender = gender;
+    this.phone = phone;
+    this.grade = grade;
+    this.Major = Major;
+}
 
 
-    tr0.appendChild(td1)
-    tr0.appendChild(td2)
-    tr0.appendChild(td3)
-    tr0.appendChild(td4)
-    tr0.appendChild(td5)
 
+
+
+
+
+
+
+
+
+
+
+
+function render() {
+    for (let i = 0; i < arrData.length; i++) {
+
+        let sdcard = document.getElementById("students-list");
+        let divContainer = document.createElement('div');
+        let img0 = document.createElement('img');
+        img0.src = `${arrData[i].userImg}`;
+        let ul = document.createElement("ul");
+        let li1 = document.createElement("li");
+        li1.textContent = `Name: ${arrData[i].FullName}`;
+        let li2 = document.createElement("li");
+        li2.textContent = `Gender: ${arrData[i].gender}`;
+        let li3 = document.createElement("li");
+        li3.textContent = `Number: ${arrData[i].phone}`;
+        let li4 = document.createElement("li");
+        li4.textContent = `Grade: ${arrData[i].grade}`;
+        let li5 = document.createElement("li");
+        li5.textContent = `Major: ${arrData[i].Major}`;
+
+        ul.appendChild(li1);
+        ul.appendChild(li2);
+        ul.appendChild(li3);
+        ul.appendChild(li4);
+        ul.appendChild(li5);
+
+        divContainer.appendChild(img0);
+        divContainer.appendChild(ul);
+        sdcard.appendChild(divContainer);
+
+    }
 }
